@@ -22,17 +22,36 @@ module.exports = () => {
         template: './index.html',
         title: 'Text_edit'
       }),
-      new WebpackPwaManifest ({
+      new WebpackPwaManifest({
         filename: 'manifest.json',
-      name: 'text_editor',
-      short_name: 'text_e',
-      description: '',
-      background_color: '#ffffff',
-      crossorigin: 'use-credentials'
+        name: 'text_editor',
+        short_name: 'text_e',
+        description: '',
+        background_color: '#ffffff',
+        crossorigin: 'use-credentials'
       }),
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: '',
+        short_name: '',
+        description: '',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
+        start_url: '/',
+        publicPath: '/',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
+
       new InjectManifest({
-        swSrc: './src-sw.js', 
-        swDest: 'src-sw.js' 
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js'
       }),
       new GenerateSW(),
     ],
