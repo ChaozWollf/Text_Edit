@@ -22,9 +22,15 @@ module.exports = () => {
         template: './index.html',
         title: 'Text_edit'
       }),
-      new WebpackPwaManifest [
-        template
-      ]
+      new WebpackPwaManifest ({
+        filename: 'manifest.json',
+      name: 'text_editor',
+      short_name: 'text_e',
+      description: '',
+      background_color: '#ffffff',
+      crossorigin: 'use-credentials'
+      }),
+      
     ],
 
     module: {
