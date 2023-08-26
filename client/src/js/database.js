@@ -15,8 +15,8 @@ const initdb = async () =>
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
 try {
-  const jateDb = await openDB('jate', 1);
-  const tx = jateDb.transaction('jate', 'readwrite');
+  const IndexedDb = await openDB('jate', 1);
+  const tx = IndexedDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
   const request = store.put({ id: id, jate: content });
   const result = await request;
@@ -29,8 +29,8 @@ catch{
 
 export const getDb = async () => {
 try {
-    const todosDb = await openDB('jate', 1);
-    const tx = jateDb.transaction('jate', 'readonly');
+    const IndexedDb = await openDB('jate', 1);
+    const tx = IndexedDb.transaction('jate', 'readonly');
     const store = tx.objectStore('jate');
     const request = store.getAll();
     const result = await request;

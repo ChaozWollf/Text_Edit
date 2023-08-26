@@ -22,6 +22,9 @@ module.exports = () => {
         template: './index.html',
         title: 'Text_edit'
       }),
+      new WebpackPwaManifest [
+        template
+      ]
     ],
 
     module: {
